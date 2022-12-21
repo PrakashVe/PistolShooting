@@ -85,6 +85,10 @@ namespace projectShoot{
             yield return new WaitForSeconds(waitTime);
             triggerwaiting = false;  // Disabling trigger waiting time
             //Debug.Log("Waited for " + waitTime + " seconds");
+            
+            
+            Destroy(GameObject.Find("Spot(Clone)"));// destroy spot 
+
         }
 
     }

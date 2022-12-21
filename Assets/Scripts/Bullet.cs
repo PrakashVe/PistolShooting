@@ -18,11 +18,14 @@ public class Bullet : MonoBehaviour
     public TextMeshPro ScoreText;
 
 
+    //public game object for spot
+    public GameObject spot;
+
     void Awake()
     {
         //Destroying bullet after 2 sec
         Destroy(gameObject, life);
-       
+        
     }
 
 
@@ -69,7 +72,7 @@ public class Bullet : MonoBehaviour
         
         //Display in TextMeshPro        
         ScoreText.text = "Attempt : " + myList.Count + " You Hit : "+ collision.gameObject.name;
-        ScoreText.color = Random.ColorHSV(0f, 1f, 1f, 1f, 0.5f, 1f); // random color of text mesh pro
+        //ScoreText.color = Random.ColorHSV(0f, 1f, 1f, 1f, 0.5f, 1f); // random color of text mesh pro
 
         //find entire target and destroy or target clone
         Destroy(GameObject.Find("Target"));
@@ -78,9 +81,11 @@ public class Bullet : MonoBehaviour
         Instantiate(TargetPrefab, new Vector3(-0.4455049f, 1.6f, 10.36385f), Quaternion.identity);
 
 
+        //instantial spot
+        Instantiate(spot, this.gameObject.transform.position, Quaternion.identity);
+        
 
 
-                
     }
    
 }
